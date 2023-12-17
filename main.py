@@ -58,7 +58,7 @@ while credentials_list:
         continue
     if proxy_option == "1":
         with sync_playwright() as p:
-            browser = p.firefox.launch(headless=False, slow_mo=50)
+            browser = p.firefox.launch(headless=True, slow_mo=50)
             context = browser.new_context(proxy={'server': random.choice(proxies)} if proxy_file_path else None)
             page = context.new_page()
 
@@ -121,7 +121,7 @@ while credentials_list:
 
             try:
                 with sync_playwright() as p:
-                    browser = p.firefox.launch(headless=False, slow_mo=50)
+                    browser = p.firefox.launch(headless=True, slow_mo=50)
                     context = browser.new_context(proxy={'server': random_proxy})
                     page = context.new_page()
 
